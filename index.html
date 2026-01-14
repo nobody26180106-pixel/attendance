@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#667eea">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Anxiety Solver</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN / SIGNUP -->
+  <div class="container" id="authBox">
+    <h2>🔐 Student Login</h2>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+    <p onclick="signup()" class="link">New user? Sign up</p>
+  </div>
+
+  <!-- MAIN APP -->
+  <div class="container hidden" id="appBox">
+    <h2>📊 Attendance Anxiety Solver</h2>
+
+    <label>Total Classes</label>
+    <input type="number" id="total">
+
+    <label>Classes Attended</label>
+    <input type="number" id="attended">
+
+    <label>Required %</label>
+    <input type="number" id="required" value="75">
+
+    <button onclick="calculate()">Check Attendance</button>
+    <button class="logout" onclick="logout()">Logout</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+</script>
+
+</body>
+</html>
